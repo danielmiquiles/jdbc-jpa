@@ -1,7 +1,5 @@
 package infra;
 
-import modelo.basico.Usuario;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -80,6 +78,10 @@ public class DAO <E>{
         query.setFirstResult(deslocamento);
 
         return query.getResultList();
+    }
+
+    public E obterPorId(Object id){
+        return entityManager.find(classe,id);
     }
 
     public void fecharDAO(){
